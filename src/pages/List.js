@@ -49,11 +49,13 @@ export function List() {
       <h1>Mis playlists</h1>
       {
         playlists.map((item, index) =>
+          <a href={`/lists/${item.id}`}>
           <div className='userPlaylist'>
             <img key='playlistImage' className='playlistImage' src={item.images[0].url}></img>
             <h2>{item.name}</h2>
             <img key='backdropImage' className='backdropImage' src={item.images[0].url}></img>
           </div>
+          </a>
         )
       }
     </div>

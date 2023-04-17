@@ -10,6 +10,7 @@ import { Login } from './login.js';
 import { ArtistDetail } from './components/artist_detail';
 import { AlbumDetail } from './components/album_detail';
 import { TrackPlayback } from './components/track_playback';
+import { ListContent } from './components/list_content';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
     element: <Menu/> },
   { path: "lists",
     element: <List/> },
+  { path: "lists/:id",
+  element: <ListContent/> },  
   { path: "search",
     element: <Search/> },
   { path: "login",
@@ -26,9 +29,9 @@ const router = createBrowserRouter([
     element: <ArtistDetail/> },
   { path: "album-detail/:id",
     element: <AlbumDetail/> },
-  { path: "track-playback/:id",
-    element: <TrackPlayback/>
-  },
+  // { path: "track-playback/:id",
+  //   element: <TrackPlayback/>
+  // },
       
 ]);
 
