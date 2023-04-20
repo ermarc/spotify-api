@@ -20,6 +20,7 @@ export function Menu() {
         <li><Link to="/"><img className="logo" key='spotifyLogo' src={require(`../img/logo.webp`)} alt="Logo d'Spotify"/></Link></li>
         <li><Link to="/search">Search</Link></li>
         <li><Link to="/lists">Llistes</Link></li>
+        <li><Link to="/free">Exercici lliure!</Link></li>
 
         {
             token ?

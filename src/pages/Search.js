@@ -14,14 +14,6 @@ export function Search() {
 	}
 
 	const linkSwitch = (type) => { 
-		// switch (type) {
-		// 	case 'single':
-		// 		return `/track-playback/`
-		// 		break;
-		// 	case 'album':
-		// 		return `/album-detail/`
-		// 		break;
-		// }
 		return `/album-detail/`;
 	}
 

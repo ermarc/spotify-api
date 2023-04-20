@@ -8,20 +8,8 @@ export function ArtistDetail() {
     const {id} = useParams();
     const [artist, setArtist] = useState([]);
     const [albums, setAlbums] = useState([]);
-    // const [artistImage, setArtistImage] = useState([]);
-    // const [artistFollows, setArtistFollows] = useState([]);
-    // const [artistGenres, setArtistGenres] = useState([]);
-    // const [artistAlbums, setArtistAlbums] = useState([]);
 
     const linkSwitch = (type) => { 
-		// switch (type) {
-		// 	case 'single':
-		// 		return `/track-playback/`
-		// 		break;
-		// 	case 'album':
-		// 		return `/album-detail/`
-		// 		break;
-		// }
         return `/album-detail/`;
 	}
 
@@ -102,30 +90,6 @@ export function ArtistDetail() {
                     <pre></pre>
             }
             {
-            /* <div className='mainContentContainer'>
-                <div className='mainContent'>
-                    <h1 className='mainTitle'>{artist.name}</h1>
-                    <h2 className='subInfo'>Seguidores: {artistFollows}</h2>
-                    <h2 className='subInfo'>Artista de '{artistGenres[0]}', '{artistGenres[1]}', '{artistGenres[2]}'</h2>
-                    <img className='artistMainImg' src={artistImage}></img>
-                </div>
-            </div>
-            <img className='artistBackImg' src={artistImage}></img>
-
-            <div className='albumListing'>
-                <div className='songMasterContainer'>
-                    {
-                        artistAlbums.map((album) =>
-                            <Link to={linkSwitch(album.album_type) + album.id} className='songContainer'>		
-                                <div key={album.id} className='songDetailContainer'>
-                                    <h1>{album.name}</h1>
-                                    <img src={album.images[0].url} className='innerContainerImg'></img>
-                                </div>
-                                <img src={album.images[0].url} className='backdropImg'></img>
-                            </Link>
-                    )}
-                </div>
-            </div> */
             }
         </div>
     )

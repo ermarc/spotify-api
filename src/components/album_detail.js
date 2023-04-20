@@ -37,7 +37,6 @@ export function AlbumDetail() {
         let response = await fetch(url, opt);
         let data = await response.json();
 
-        // let data = JSON.parse(``);
         setAlbum(data)
         setTracks(data.tracks.items)
     }

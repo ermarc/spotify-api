@@ -1,0 +1,34 @@
+.freeTitle {
+    text-align: center;
+}
+
+.infoContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid gray;
+    border-radius: 15px;
+    padding: 10px;
+    gap: 20px;
+    text-align: center;
+    max-width: 1200px;
+}
+
+.infoData > h3 {
+    font-style: italic;
+}
+
+.infoImage {
+    border-radius: 15px;
+}
+
+.infoBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: blur(1.5vh) brightness(75%);
+}

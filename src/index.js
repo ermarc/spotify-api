@@ -11,6 +11,7 @@ import { ArtistDetail } from './components/artist_detail';
 import { AlbumDetail } from './components/album_detail';
 import { TrackPlayback } from './components/track_playback';
 import { ListContent } from './components/list_content';
+import { Free } from './pages/Free';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -29,6 +30,8 @@ const router = createBrowserRouter([
     element: <ArtistDetail/> },
   { path: "album-detail/:id",
     element: <AlbumDetail/> },
+  { path: "free",
+    element: <Free></Free>}
   // { path: "track-playback/:id",
   //   element: <TrackPlayback/>
   // },
