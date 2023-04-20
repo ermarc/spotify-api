@@ -30,7 +30,6 @@ export function Search() {
 		let response = await fetch(url, opt);
 		let data = await response.json();
 		setAlbums(data.albums.items);
-		console.log(data.albums.items)
 	}
 
 	return (

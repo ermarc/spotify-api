@@ -19,7 +19,6 @@ export function ListContent() {
         let data = await response.json();
 
         setTracks(data.items);
-        console.log(tracks)
     }
 
     useEffect(() => { getTracks(id) }, [JSON.stringify(tracks)])

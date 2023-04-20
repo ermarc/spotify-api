@@ -68,10 +68,6 @@ body {
     position: relative;
 }
 
-/* .songContainer:hover {
-    animation: amplificate 0.25s ease-in-out forwards;
-} */
-
 .songContainer > div > img {
     border-radius: 13px;
     width: 300px;

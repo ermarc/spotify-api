@@ -20,6 +20,12 @@ export function List() {
         return data.id;
   }
 
+  function isEverythingLoaded() {
+    let count = 0;
+    if (playlists) count++;
+    return (count === 1 ? true : false);
+  }
+
   const getUserPlaylists = async (userId) => {
       const headerObj = new Headers();
         headerObj.append('Content-Type', 'application/json');
@@ -39,24 +45,25 @@ export function List() {
     await getUserPlaylists(userId);
   }
 
-
-  useEffect(() => { getInfo(); console.log(playlists) }, [JSON.stringify(playlists)])
-
+  useEffect(() => { getInfo(); }, [JSON.stringify(playlists)])
 
   return (
     <div className="x">
       <Menu></Menu>
       <h1>Mis playlists</h1>
       {
-        playlists.map((item, index) =>
-          <a href={`/lists/${item.id}`}>
-          <div className='userPlaylist'>
-            <img key='playlistImage' className='playlistImage' src={item.images[0].url}></img>
-            <h2>{item.name}</h2>
-            <img key='backdropImage' className='backdropImage' src={item.images[0].url}></img>
-          </div>
-          </a>
+        isEverythingLoaded() ?
+          playlists.map((item) =>
+            <a href={`/lists/${item.id}`}>
+              <div className='userPlaylist'>
+                {/* <img key='playlistImage' className='playlistImage' src={item.images[0].url}></img> */}
+                <h2>{item.name}</h2>
+                {/* <img key='backdropImage' className='backdropImage' src={item.images[0].url}></img> */}
+              </div>
+            </a>
         )
+          :
+          <pre></pre>
       }
     </div>
   );

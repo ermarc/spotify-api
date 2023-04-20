@@ -1,0 +1,36 @@
+.miniatureContainer {
+    position: relative;
+    width: 180px;
+    height: 200px;
+    border: 3px solid gray;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.miniatureName {
+    color: white;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.miniatureImage {
+    width: 70%;
+    border-radius: 10px;
+    justify-self: center;
+}
+
+.miniatureBackground {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1.5vh) brightness(75%);
+}

@@ -1,6 +1,6 @@
-import { React, useState, useEffect, useContext } from 'react';
-import { TokenContext } from '../components/logThing';
+import { React, useState, useEffect } from 'react';
 import { Menu } from '../components/menu';
+import { Miniature } from '../components/miniature';
 import '../styles/Free.css';
 
 export function Free() {
@@ -13,7 +13,8 @@ export function Free() {
         if (info.email) count++;
         if (info.images) count++;
         if (info.product) count++;
-        return (count == 4 ? true : false);
+        if (artists) count++;
+        return (count === 5 ? true : false);
     }
 
     const getPersonalInfo = async () => {
@@ -42,7 +43,6 @@ export function Free() {
 		let data = await response.json();
         
         setArtists(data.items);
-        console.log(data.items)
 	}
 
     useEffect(() => { getPersonalInfo(); }, [])
@@ -58,7 +58,7 @@ export function Free() {
 
             {
                 isEverythingLoaded() ?
-                    <div>   
+                    <div className='responseContainer'>   
                         <div className='infoContainer'>
                             <img className='infoImage' src={info.images[0].url}></img>
                             <div className='infoData'>
@@ -70,23 +70,19 @@ export function Free() {
                         </div>
                         <br></br>
 
-                        <h1 className='freeTitle'>Artistes que segueixes</h1>
-                        <br></br><br></br>
+                        <h1 className='freeTitle'>Artistes que més escoltes</h1>
+                        <div className='freeArtistCompilation'>
+                        {
+                            artists.map((artist) => 
+                                <Miniature data={artist}></Miniature>
+                            )
+                        }
+                        </div>
                     </div>
 
                 :
                 <pre></pre>
             }
-
-            {/* <form className='searchForm' onSubmit={getPersonalInfo}>
-				<input type='text' onChange={changeInput} name='textInput' placeholder='Escriu per cercar' />
-				<input type='submit' value='Començar cerca' />
-			</form>
-
-            <form className='searchForm' onSubmit={getFollowedArtists}>
-				<input type='text' onChange={changeInput} name='textInput' placeholder='Escriu per cercar' />
-				<input type='submit' value='Començar cerca' />
-			</form> */}
         </div>
     );
 }

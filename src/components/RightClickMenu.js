@@ -44,7 +44,7 @@ export function RightClickMenu(data) {
       await getUserPlaylists(userId);
     }
 
-    useEffect(() => { getInfo(); console.log(playlists) }, [JSON.stringify(playlists)])
+    useEffect(() => { getInfo(); }, [JSON.stringify(playlists)])
 
     return (
         <div style={menuStyles} className='menuDiv'>

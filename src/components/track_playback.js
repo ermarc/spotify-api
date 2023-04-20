@@ -24,7 +24,6 @@ export function TrackPlayback() {
         let data = await response.json();
 
         setTrack(data);
-        console.log(track);
     }
 
     useEffect(() => { fetchTrackFromApi(id); });
