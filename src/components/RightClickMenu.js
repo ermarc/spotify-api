@@ -44,13 +44,27 @@ export function RightClickMenu(data) {
       await getUserPlaylists(userId);
     }
 
+    const postTrackOnPlaylist = async (playlistId, xd) => {
+        console.log(xd)
+        const userId = await getUserId();
+
+        const headerObj = new Headers();
+        headerObj.append('Content-Type', 'application/json');
+        headerObj.append('Authorization', `Bearer ${window.localStorage.getItem("token")}`)
+            
+        const opt = {method: "POST", headers: headerObj}
+        const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?uris=spotify:track:${xd}`;
+
+        fetch(url, opt);
+    }
+
     useEffect(() => { getInfo(); }, [JSON.stringify(playlists)])
 
     return (
         <div style={menuStyles} className='menuDiv'>
             <h3>Afegir a una llista</h3>
             {playlists.map((playlist) =>
-                <h4>{playlist.name}</h4>
+                <h4 onClick={() => { postTrackOnPlaylist(playlist.id, data.data.track) }}>{playlist.name}</h4>
             )}
         </div>
     );

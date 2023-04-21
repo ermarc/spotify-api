@@ -89,8 +89,6 @@ export function ArtistDetail() {
                 :
                     <pre></pre>
             }
-            {
-            }
         </div>
     )
 }

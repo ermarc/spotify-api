@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import { Menu } from '../components/menu';
 import '../styles/List.css';
+import unknown from '../unknown.png';
  
 export function List() {
 
@@ -18,12 +19,6 @@ export function List() {
         let data = await response.json();
 
         return data.id;
-  }
-
-  function isEverythingLoaded() {
-    let count = 0;
-    if (playlists) count++;
-    return (count === 1 ? true : false);
   }
 
   const getUserPlaylists = async (userId) => {
@@ -45,25 +40,31 @@ export function List() {
     await getUserPlaylists(userId);
   }
 
-  useEffect(() => { getInfo(); }, [JSON.stringify(playlists)])
+  useEffect(() => { getInfo(); }, '')
 
   return (
     <div className="x">
       <Menu></Menu>
       <h1>Mis playlists</h1>
       {
-        isEverythingLoaded() ?
-          playlists.map((item) =>
+        playlists.map((item) =>
             <a href={`/lists/${item.id}`}>
-              <div className='userPlaylist'>
-                {/* <img key='playlistImage' className='playlistImage' src={item.images[0].url}></img> */}
-                <h2>{item.name}</h2>
-                {/* <img key='backdropImage' className='backdropImage' src={item.images[0].url}></img> */}
-              </div>
+            {
+              item.images[0] ?
+                <div className='userPlaylist'>
+                  <img key='playlistImage' className='playlistImage' src={item.images[0].url}></img>
+                  <h2>{item.name}</h2>
+                  <img key='backdropImage' className='backdropImage' src={item.images[0].url}></img>
+                </div>
+              :
+                <div className='userPlaylist'>
+                    <img key='playlistImage' className='playlistImage' src={unknown}></img>
+                    <h2>{item.name}</h2>
+                    <img key='backdropImage' className='backdropImage' src={unknown}></img>
+                </div>
+            }
             </a>
-        )
-          :
-          <pre></pre>
+          )
       }
     </div>
   );

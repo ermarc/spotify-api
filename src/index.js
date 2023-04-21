@@ -9,7 +9,6 @@ import { Context } from './components/logThing.js';
 import { Login } from './login.js';
 import { ArtistDetail } from './components/artist_detail';
 import { AlbumDetail } from './components/album_detail';
-import { TrackPlayback } from './components/track_playback';
 import { ListContent } from './components/list_content';
 import { Free } from './pages/Free';
 
@@ -32,10 +31,6 @@ const router = createBrowserRouter([
     element: <AlbumDetail/> },
   { path: "free",
     element: <Free></Free>}
-  // { path: "track-playback/:id",
-  //   element: <TrackPlayback/>
-  // },
-      
 ]);
 
 root.render(

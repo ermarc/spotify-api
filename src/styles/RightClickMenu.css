@@ -6,6 +6,20 @@
     background-color: green;
     border-radius: 10px;
     padding: 15px;
-    pointer-events: auto;
     text-align: center;
+}
+
+.menuDiv > h4 {
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: black;
+    pointer-events: all;
+    color: white;
+    margin: 5px;
+}
+
+.menuDiv > h4:hover {
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    color: black;
 }
